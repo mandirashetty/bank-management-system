@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            text-align: center;
+        }
+        .form-container h1 {
+            margin-bottom: 20px;
+        }
+        input, select {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            font-size: 1rem;
+            background: rgba(47, 96, 255, 0.2);
+            color: #fff;
+        }
+        input:valid {
+            border-color: green;
+        }
+        input:invalid {
+            border-color: red;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background: linear-gradient(45deg, #ff6a00, #ee0979);
+            color: #fff;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background: linear-gradient(45deg, #ee0979, #ff6a00);
+            transform: scale(1.05);
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        @media (max-width: 768px) {
+            .form-container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Sign Up</h1>
+        <form action="/register" method="POST">
+            <input type="text" name="name" placeholder="Full Name" required><br>
+            <input type="email" name="email" placeholder="Email Address" required><br>
+            <input type="number" name="userid" placeholder="User ID" required><br>
+            <input type="password" name="password" placeholder="Password" required><br>
+            <input type="text" name="branch" placeholder="Bank Branch Name" required><br>
+            <select name="account_type" required>
+                <option value="" disabled selected>Select Account Type</option>
+                <option value="savings">Savings Account</option>
+                <option value="current">Current Account</option>
+            </select><br>
+            {% if error %}
+                <p style="color: red;">{{ error }}</p>
+            {% endif %}
+            <button type="submit">Create Account</button>
+        </form>
+        
+    </div>
+</body>
+</html>

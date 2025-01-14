@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfer Money</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #6a11cb, #2575fc);
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh;
+        }
+        .container {
+            max-width: 600px;
+            width: 90%;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            margin: auto;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        .form-group {
+            margin: 20px 0;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            margin-top: 10px;
+            box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        button {
+        margin-top: 20px;
+        background: linear-gradient(to right, #ff6a00, #ffcd3c);
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 1.2em;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #f3f3a9;
+        }
+        footer {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        footer a {
+            background: linear-gradient(to right, #ff6a00, #ffcd3c);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1em;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        footer a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Transfer Money</h1>
+        <form method="POST">
+            <label for="recipient_account_number">Recipient's Account Number</label>
+            <input type="number" id="recipient_account_number" name="recipient_account_number" required>
+
+            <label for="amount">Amount to Transfer</label>
+            <input type="number" id="amount" name="amount" min="1" required>
+
+            <button type="submit">Transfer</button>
+        </form>
+
+        {% if message %}
+        <div class="message">{{ message }}</div>
+        {% endif %}
+    </div>
+    <footer>
+        <a href="/logout">Log Out</a>
+        <a href="/dashboard">← Back to Dashboard</a>
+    </footer>
+</body>
+</html>

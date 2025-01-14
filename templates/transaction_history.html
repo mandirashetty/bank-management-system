@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction History</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #6a11cb, #2575fc);
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            width: 90%;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            margin: auto;
+            overflow-x: auto;
+        }
+        h1, h3 {
+            text-align: center;
+            text-transform: uppercase;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            color: black;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #6a11cb;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        footer {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        footer a {
+            background: linear-gradient(to right, #ff6a00, #ffcd3c);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1em;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        footer a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Transaction History </h1>
+        <p><strong>Account Number:</strong> {{ account_number }}</p>
+        
+        {% if transactions %}
+        <table id="transactionTable">
+            <thead>
+                <tr>
+                    <th>Date & Time</th>
+                    <th>Type</th>
+                    <th>Amount</th>
+                    <th>Balance</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for transaction in transactions %}
+                <tr>
+                    <td>{{ transaction.date_time }}</td>
+                    <td>{{ transaction.transaction_type }}</td>
+                    <td>{{ transaction.amount }}</td>
+                    <td>{{ transaction.balance }}</td>
+                    <td>{{ transaction.details }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No transactions available.</p>
+        {% endif %}
+
+        
+    </div>
+    <footer>
+        <a href="/logout">Log Out</a>
+        <a href="/dashboard">← Back to Dashboard</a>
+    </footer>
+
+
+</body>
+</html>

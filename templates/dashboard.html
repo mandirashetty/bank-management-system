@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #89f7fe, #66a6ff);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 50px auto;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            flex: 1;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+        .details {
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .details p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        .footer {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .footer a {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: #fff;
+            text-decoration: none;
+            background: linear-gradient(45deg, #ff4e50, #f9d423);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .footer a:hover {
+            transform: scale(1.1);
+            background: linear-gradient(45deg, #f9d423, #ff4e50);
+        }
+        .section {
+            text-align: center;
+            background: rgba(148, 208, 204, 0.8);
+            padding: 20px;
+            border-top: 1px solid rgba(182, 241, 201, 0.2);
+        }
+        .section a {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: #fff;
+            text-decoration: none;
+            background: linear-gradient(45deg, #ff4e50, #f9d423);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .section a:hover {
+            transform: scale(1.1);
+            background: linear-gradient(45deg, #f9d423, #ff4e50);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Your Dashboard</h1>
+        <div class="details">
+            <p><strong>Name:</strong> {{ name }}</p>
+
+            <p><strong>Account Number:</strong> {{ account_number }}</p>
+            <p><strong>Branch:</strong> {{ branch }}</p>
+            <p><strong>Balance:</strong> ₹{{ balance }}</p>
+        </div>
+        <div class ="section">  
+            <a href="/deposit">Deposit</a>
+            <a href="/withdraw">Withdraw</a>
+            <a href="/transaction-history">Transaction History</a>
+            <a href="/transfer">Transfer Money</a>
+        </div>
+    </div>
+    <div class="footer">
+        <a href="/logout">Log Out</a>
+    </div>
+</body>
+</html>
